@@ -29,7 +29,7 @@ public class Dot {
         paint.setARGB(alpha, red, green, blue);
     }
 
-    public void draw(Canvas canvas) {
+    public void draw(Canvas canvas){
         canvas.drawCircle(x, y, penWidth, paint);
     }
 
