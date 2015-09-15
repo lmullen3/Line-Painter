@@ -16,13 +16,19 @@ import java.util.ArrayList;
 
 
 public class DoodleView extends View{
-    public final static int DEFAULT_WIDTH = 25;
-
+    private int alphaValue = 0;
+    private int redValue = 0;
+    private int greenValue = 0;
+    private int blueValue = 0;
+    public final static int DEFAULT_COLOR = Color.argb(250,10,0,0);
+    public final static int DEFAULT_WIDTH = 60;
     private ArrayList<Line> theLines;
     private int lineWidth = DEFAULT_WIDTH;
-    private int redColor = 0;
+    private int lineColor = DEFAULT_COLOR;
     private float x1=0;
     private float y1=0;
+    private float x2 = 0;
+    private float y2 = 0;
 
     public DoodleView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -32,10 +38,23 @@ public class DoodleView extends View{
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+            x1 = event.getX();
+            y1 = event.getY();
 
-        theLines.add(new Line(x1 , y1,  event.getX(),event.getY(), lineWidth));
+        } else {
+            x1=x2;
+            y1=y2;
+            x2 = event.getX();
+            y2 = event.getY();
+
+
+        }
+
+        theLines.add(new Line(x1, y1, x2,y2, lineWidth));
         return true;
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -52,11 +71,11 @@ public class DoodleView extends View{
     public int getLineWidth() {
         return lineWidth;
     }
-    public void setRedColor(int redColor){
-        this.redColor = redColor;
+    public void setColor(int color){
+        this.lineColor = color;
     }
-    public int getRedValue(){
-        return redColor;
+    public int getColor(){
+        return this.lineColor;
     }
 
 

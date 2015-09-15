@@ -31,8 +31,17 @@ public class Line {
         paint = new Paint();
         paint.setARGB(alpha, red, green, blue);
     }
+
     public void drawLine(Canvas canvas){
+        paint.setStrokeWidth(lineWidth);
+        paint.setStrokeCap(Paint.Cap.ROUND);
         canvas.drawLine(x1, y1,x2,y2, paint);
+    }
+    public float getX(){
+        return x1;
+    }
+    public float gety(){
+        return y1;
     }
 
 }

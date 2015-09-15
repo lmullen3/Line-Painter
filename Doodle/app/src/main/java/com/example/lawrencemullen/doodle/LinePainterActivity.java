@@ -50,6 +50,7 @@ public class LinePainterActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == WIDTH_DIALOG) {
             if (resultCode == RESULT_OK) {
@@ -57,13 +58,14 @@ public class LinePainterActivity extends AppCompatActivity {
                 int width = data.getIntExtra("width", doodleView.getLineWidth());
                 doodleView.setLineWidth(width);
             }
-        }
-        if (requestCode == COLOR_DIALOG) {
-            if (resultCode == RESULT_OK) {
-                // get the new line width and tell the DoodleView
-                int red = data.getIntExtra("red", doodleView.getRedValue());
-                doodleView.setRedColor(red);
-            }
+//        }
+//        if (requestCode == COLOR_DIALOG) {
+//            if (resultCode == RESULT_OK) {
+//                // get the new line width and tell the DoodleView
+//                int red = data.getIntExtra("red", doodleView.getRedValue());
+//                doodleView.setRedColor(width);
+//            }
+//        }
         }
     }
 }

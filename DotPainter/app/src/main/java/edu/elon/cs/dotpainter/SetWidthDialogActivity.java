@@ -33,13 +33,13 @@ public class SetWidthDialogActivity extends Activity {
     }
 
     void updateImageView() {
-//        // draw a white circle the size of the seekBar
-//        Paint p = new Paint();
-//        p.setColor(Color.WHITE);
-//        Bitmap bitmap = Bitmap.createBitmap(250, 250, Bitmap.Config.ARGB_8888);
-//        Canvas canvas = new Canvas(bitmap);
-//        canvas.drawCircle(125, 125, seekBar.getProgress(), p);
-//        imageView.setImageBitmap(bitmap);
+        // draw a white circle the size of the seekBar
+        Paint p = new Paint();
+        p.setColor(Color.WHITE);
+        Bitmap bitmap = Bitmap.createBitmap(250, 250, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        canvas.drawCircle(125, 125, seekBar.getProgress(), p);
+        imageView.setImageBitmap(bitmap);
     }
 
     SeekBar.OnSeekBarChangeListener seekBarListener =
